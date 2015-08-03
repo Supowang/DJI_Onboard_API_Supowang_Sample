@@ -63,8 +63,8 @@ void display(u16 line)
 	while(1)
 	{	
 		DJI_Onboard_API_Activation();//激活API
-		delay_ms(500);
-		if(i>3)
+		delay_ms(500);//延时用来保障应答数据接收完毕
+		if(i>3)//i>3只是用来判断串口中断是否接收到数据
 			{	
 				HexToStr(PrintAck, RecBuff, i);
 				display(40);
@@ -125,9 +125,10 @@ void display(u16 line)
 //				LCD_ShowString(20,215,200,16,12,"Begin to landing");
 //				DJI_Onboard_API_UAV_Control(6);//降落	
 			
-       	DJI_Onboard_API_Ctr(0x48,200,6,0,0,0);//拉开距离，使飞机飞出起飞点20m外，方便测试返航功能，实飞时请不要执行该命定。
+       	DJI_Onboard_API_Ctr(0x48,200,6,0,0,0);//拉开距离，使飞机飞出起飞点20m外，方便测试返航功能，实飞时请不要执行该命令
 				LCD_ShowString(20,215,200,16,12,"Begin to go home");
 				DJI_Onboard_API_UAV_Control(1);//自动返航
+				delay_s(4);
 	      while(1)
 				{
 					LCD_ShowString(20,235,200,16,12,"All task finished ");

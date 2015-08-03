@@ -25,11 +25,11 @@ static activation_data_t activation_msg = {14,2,1,""};
 void DJI_Pro_Test_Setup(void)
 {
 
-	activation_msg.app_id =1002242;
+	activation_msg.app_id =10086;
 	activation_msg.app_api_level = 2;
 	activation_msg.app_ver = 1;
 	memcpy(activation_msg.app_bundle_id,"1234567890123456789012", 32);
-	key = "be8631fb6d726c96f5b935df3cc64510dd9e74febe60400192e0b8608593828e";
+	key = "be8631fb6d726c96f5b935df3c510dd9e74febe60400192e08593828e";
 	Pro_Config_Comm_Encrypt_Key(key);
 	Pro_Link_Setup();
 }

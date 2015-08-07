@@ -113,6 +113,8 @@ void display(u16 line)
 	
 // 开始执行任务
 				delay_s(5);	
+	      DJI_Onboard_API_Ctr(0x48,100,0,0,2,0);
+	      delay(400);
 	      LCD_ShowString(20,155,200,16,12,"Take off Success");
 				LCD_ShowString(20,175,200,16,12,"Begin to fly cube");
 				DJI_Onboard_API_Ctr_drawcube();//画正方体
@@ -122,10 +124,10 @@ void display(u16 line)
 				LCD_ShowString(20,195,200,16,12,"Begin to fly circle");
 				DJI_Onboard_API_Ctr_drawcircle();//在正方体上方绘制外接圆
 				delay_s(4);
-//				LCD_ShowString(20,215,200,16,12,"Begin to landing");
-//				DJI_Onboard_API_UAV_Control(6);//降落	
+//			LCD_ShowString(20,215,200,16,12,"Begin to landing");
+//			DJI_Onboard_API_UAV_Control(6);//降落	
 			
-       	DJI_Onboard_API_Ctr(0x48,200,6,0,0,0);//拉开距离，使飞机飞出起飞点20m外，方便测试返航功能，实飞时请不要执行该命令
+//      DJI_Onboard_API_Ctr(0x48,200,6,0,0,0);//拉开距离，使飞机飞出起飞点20m外，方便测试返航功能，实飞时请不要执行该命令
 				LCD_ShowString(20,215,200,16,12,"Begin to go home");
 				DJI_Onboard_API_UAV_Control(1);//自动返航
 				delay_s(4);

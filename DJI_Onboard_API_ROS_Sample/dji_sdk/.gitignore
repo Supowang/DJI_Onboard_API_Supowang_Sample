@@ -1,0 +1,4 @@
+*.cpp~
+/.idea/
+.DS_Store
+/exinclude/
